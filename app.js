@@ -3,12 +3,18 @@ const tweetsContainer = document.querySelector('#tweets');
 
 tweetForm.addEventListener('submit', function (e) {
   e.preventDefault();
-  const usernameInput = tweetForm.elements.username.value;
-  const tweetInput = tweetForm.elements.tweet.value;
+  const usernameInput = tweetForm.elements.username;
+  const tweetInput = tweetForm.elements.tweet;
+  addTweet(usernameInput.value, tweetInput.value);
+  usernameInput.value = '';
+  tweetInput.value = '';
+});
+
+const addTweet = (username, tweet) => {
   const newTweet = document.createElement('li');
   const bTag = document.createElement('b');
-  bTag.append(usernameInput)
+  bTag.append(username);
   newTweet.append(bTag);
-  newTweet.append(` - ${tweetInput}`);
+  newTweet.append(` - ${tweet}`);
   tweetsContainer.append(newTweet);
-});
+};
