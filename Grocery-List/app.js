@@ -15,3 +15,7 @@ const addProduct = (product, qty) => {
   newItem.innerText = `${qty} ${product}`;
   list.appendChild(newItem);
 };
+
+list.addEventListener('click', function (e) {
+  e.target.nodeName === 'LI' && e.target.remove();
+});

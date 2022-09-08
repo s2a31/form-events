@@ -18,3 +18,7 @@ const addTweet = (username, tweet) => {
   newTweet.append(` - ${tweet}`);
   tweetsContainer.append(newTweet);
 };
+
+tweetsContainer.addEventListener('click', function (e) {
+  e.target.nodeName === 'LI' && e.target.remove();
+});
